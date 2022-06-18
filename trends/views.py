@@ -24,5 +24,11 @@ def signup(request):
     return render(request,'registration/signup.html',{'form':form})
 
 
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    if request.user.is_authenticated:
+        return render(request,'profile.html')
+    else:
+        return redirect('login')
 
 
