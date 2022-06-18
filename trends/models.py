@@ -41,4 +41,21 @@ class N_Hood(models.Model):
     def update_hood(self):
         self.update()
 
+
+class Business(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+    def save_business(self):
+        self.save()
+
+    def delete_business(self):
+        self.delete()
+
+    def update_business(self):
+        self.update()
+
     
