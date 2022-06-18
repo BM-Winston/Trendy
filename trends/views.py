@@ -1,6 +1,8 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth.decorators import login_required
 from trends.forms import RegisterForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+import email
 
 # Create your views here.
 
