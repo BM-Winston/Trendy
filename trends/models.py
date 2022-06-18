@@ -58,4 +58,24 @@ class Business(models.Model):
     def update_business(self):
         self.update()
 
+    def search_business(self):
+        return Business.objects.filter(name__icontains=self.name)
+
+
+class User_Business(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    business = models.ForeignKey(Business, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.username
+
+    def save_user_business(self):
+        self.save()
+
+    def delete_user_business(self):
+        self.delete()
+
+    def update_user_business(self):
+        self.update()
+
     
