@@ -12,3 +12,13 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        self.delete()
+
+    def update_profile(self):
+        self.update()
