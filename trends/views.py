@@ -3,6 +3,8 @@ from trends.forms import RegisterForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import email
+from .models import *
+from django.contrib import messages
 
 # Create your views here.
 
@@ -20,5 +22,7 @@ def signup(request):
     else:    
         form = RegisterForm()
     return render(request,'registration/signup.html',{'form':form})
+
+
 
 
