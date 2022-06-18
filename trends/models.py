@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
+
 # Create your models here.
 
 class Profile(models.Model):
@@ -28,6 +30,7 @@ class N_Hood(models.Model):
     name = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
     occupants = models.IntegerField()
+    
 
     def __str__(self):
         return self.name
@@ -40,6 +43,18 @@ class N_Hood(models.Model):
 
     def update_hood(self):
         self.update()
+
+    def create_hood(self):
+        self.create()
+
+    def update_occupants(self): 
+        self.occupants += 1
+        self.save()
+
+    
+
+    def __str__(self):
+        return self.name
 
 
 class Business(models.Model):
