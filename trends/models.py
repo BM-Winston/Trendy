@@ -21,4 +21,24 @@ class Profile(models.Model):
         self.delete()
 
     def update_profile(self):
+        
         self.update()
+
+class N_Hood(models.Model):
+    name = models.CharField(max_length=50)
+    location = models.CharField(max_length=50)
+    occupants = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+    def save_hood(self):
+        self.save()
+
+    def delete_hood(self):
+        self.delete()
+
+    def update_hood(self):
+        self.update()
+
+    
