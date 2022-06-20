@@ -27,11 +27,11 @@ class Profile(models.Model):
         self.update()
 
 class N_Hood(models.Model):
-    n_id = models.AutoField(primary_key=True)
+    n_id = models.AutoField(primary_key=True, null = True)
     name = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
     occupants = models.IntegerField()
-    admin = models.ForeignKey(User, on_delete=models.CASCADE)
+    admin = models.ForeignKey(User, on_delete=models.CASCADE, null= True)
     
 
     def __str__(self):
@@ -86,23 +86,6 @@ class Business(models.Model):
         return Business.objects.filter(name__icontains=self.name)
 
 
-class User_Business(models.Model):
-    name=models.CharField(max_length=50)
-    id=models.AutoField(primary_key=True)
-    n_hood=models.ForeignKey(N_Hood, on_delete=models.CASCADE)
-    email=models.EmailField(null=True)
-
-    def __str__(self):
-        return self.user.username
-
-    def save_user_business(self):
-        self.save()
-
-    def delete_user_business(self):
-        self.delete()
-
-    def update_user_business(self):
-        self.update()
 
 
 class Post(models.Model):
