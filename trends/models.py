@@ -27,7 +27,7 @@ class Profile(models.Model):
         self.update()
 
 class N_Hood(models.Model):
-    n_id = models.AutoField(primary_key=True, null = True)
+    n_hood_id = models.AutoField(primary_key=True, default=0)
     name = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
     occupants = models.IntegerField()
@@ -65,7 +65,7 @@ class Business(models.Model):
     email = models.EmailField(max_length=50)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     email=models.EmailField(null=True)
-    n_hood=models.ForeignKey(N_Hood,on_delete=models.CASCADE)
+    
 
     def __str__(self):
         return self.name
@@ -89,7 +89,7 @@ class Business(models.Model):
 
 
 class Post(models.Model):
-    n_hood = models.ForeignKey(N_Hood, on_delete=models.CASCADE)
+    n_hood_id= models.ForeignKey(N_Hood, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     post = models.TextField()
     user=models.ForeignKey(User,on_delete=models.CASCADE)
