@@ -35,7 +35,7 @@ def profile(request):
 def posts(request):
 
     post = Post.objects.all()
-    return render(request,'post.html',{'post':posts})
+    return render(request,'post.html',{'post':post})
 
 
 @login_required(login_url='/accounts/login/')
