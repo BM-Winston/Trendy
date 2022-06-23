@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trendy</title>
+</head>
+<body>
+    <div class="container">
+        {% for n_hood in n_hoods %}
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <h1>Neighbouhood</h1>
+                    <h2 class="card title">
+                        {{n_hood.name}}
+    
+                    </h2>
+                    <h3>{{n_hood.location}}</h3>
+                    <p>{{n_hood.occupants}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>
